@@ -1,0 +1,137 @@
+<?php echo $this->render('folder/header.phtml') ?>
+
+<div id="content">
+	<?php 
+	if(isset($this ->reviewvalues))
+		$values = $this->reviewvalues;
+	else
+		$values = $this->survinfo; 
+	
+	$errors = $this->errors;	
+	?>
+						
+    <form action='<?=$this->escape($this->action);?>' id="surv_regis" name="surv_regis" method="POST">
+      <div id="surv_general_information" class="leftdiv">
+        <fieldset>
+          <legend>
+          <h1>Update Your Information</h1>
+          </legend>
+          <p>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="<?php if($values && !isset($errors['first_name'])){ echo htmlentities($values['firstname'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['first_name'])){
+		  			echo $errors['first_name'];}?>
+    		</span>  
+
+          </p>
+          <p>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" value="<?php if($values && !isset($errors['last_name'])){ echo htmlentities($values['lastname'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['last_name'])){
+		  			echo $errors['last_name'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" value="<?php if($values && !isset($errors['country'])){ echo htmlentities($values['country'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['country'])){
+		  			echo $errors['country'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state" value="<?php if($values && !isset($errors['state'])){ echo htmlentities($values['state'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['state'])){
+		  			echo $errors['state'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" value="<?php if($values && !isset($errors['city'])){ echo htmlentities($values['city'], ENT_COMPAT, 'UTF-8');} ?>"/>
+             <span>
+    		<?php if ($values && isset($errors['city'])){
+		  			echo $errors['city'];}?>
+    		</span>
+          </p>
+           <p>
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" value="<?php if($values && !isset($errors['address'])){ echo htmlentities($values['address'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['address'])){
+		  			echo $errors['address'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="zip">Zip Code:</label>
+            <input type="text" name="zip" id="zip" value="<?php if($values && !isset($errors['zip'])){ echo htmlentities($values['zip'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['zip'])){
+		  			echo $errors['zip'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" value="<?php if($values && !isset($errors['phone'])){ echo htmlentities($values['phone'], ENT_COMPAT, 'UTF-8');} ?>"/>
+             <span>
+    		<?php if ($values && isset($errors['phone'])){
+		  			echo $errors['phone'];}?>
+    		</span>
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" value="<?php if($values && !isset($errors['email'])){ echo htmlentities($values['email'], ENT_COMPAT, 'UTF-8');} ?>"/>
+            <span>
+    		<?php if ($values && isset($errors['email'])){
+		  			echo $errors['email'];}?>
+    		</span>
+          </p>
+        </fieldset>
+      </div>
+      <div id="surv_login_information" class="rightdiv">
+        <fieldset>
+          <legend>
+          <h1>Change Password</h1>
+          </legend>
+        <p>
+        	<label for="username">Username:</label>
+            <input readonly="true" type="text" name="username" id="username" value="<?php echo $values['username'];?>"/>
+        </p>
+        <p>
+        	<label for="oldpassword">Old Password:</label>
+            <input type="password" name="oldpassword" id="oldpassword"/>
+             <span>
+    		<?php if ($values && isset($errors['oldpassword'])){
+		  			echo $errors['oldpassword'];}?>
+    		</span>
+        </p>
+        <p>
+        	<label for="password">New Password:</label>
+            <input type="password" name="password" id="password"/>
+            <span>
+    		<?php if ($values && isset($errors['password'])){
+		  			echo $errors['password'];}?>
+    		</span>
+        </p>
+    	<p>
+            <label for="conf_password">Retype New Password:</label>
+            <input type="password" name="conf_password" id="conf_password"/>
+            <span>
+    		<?php if ($values && isset($errors['conf_password'])){
+		  			echo $errors['conf_password'];}?>
+    		</span>
+        </p>
+          
+        </fieldset>
+        <p>
+      	<input type="submit" name="update_surveyor" id="update_surveyor" value="Update" />
+      </p>
+      </div>
+      <br style="clear:both;" />
+
+    </form>
+  </div>
+<?php include "footer.phtml"; ?>

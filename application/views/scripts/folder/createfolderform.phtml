@@ -1,0 +1,35 @@
+<?php include 'header.phtml'; ?>
+<form id="create_folder_form" name="create_folder_form" method="POST" action='<?=$this->escape($this->action);?>'>
+	<?php
+      $errors 		= $this->errors;
+      $values 		= $this->values;
+    ?> 	
+	<fieldset>
+    	<legend>
+         	<h1>Create New Folder</h1>
+    	</legend>
+		<p>
+        <label for="foldername">Folder Name:</label>
+		<input name="foldername" id="foldername" type="text" maxlength="35">
+        <span>
+    		<?php if ($values && isset($errors['foldername'])){
+		  			echo $errors['foldername'];}?>
+    	</span>
+        </p>
+        
+        <p>
+        <label for="comment">Comment:</label>
+		<input name="comment" id="comment" type="text" maxlength="150">
+        <span>
+    		<?php if ($values && isset($errors['comment'])){
+		  			echo $errors['comment'];}?>
+    	</span>
+        </p>
+        
+        <p>
+        <input type="submit" name="create_folder" id="create_folder" value="Create Folder" />
+        </p>
+	</fieldset>
+</form>
+  
+<?php include "footer.phtml"; ?>

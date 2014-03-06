@@ -1,0 +1,26 @@
+<?php include 'header.phtml'; ?>
+ <div id="content">
+ <center><h1 style="color:#E22323">WELCOME TO AGRIMETER WEB PLATFORM</h1></center>
+ <div id="loginform">
+ <center>
+  <h1><?=$this->escape($this->title);?></h1> 
+  <form method='post' action='<?=$this->escape($this->action);?>'>
+  <table>
+    <tr>
+	  <td><?=$this->escape($this->username);?></td>
+	  <td><input type='text' name='username'></td>
+	</tr>
+    <tr>
+	  <td><?=$this->escape($this->password);?></td>
+	  <td><input type='password' name='password'></td>
+	</tr>	
+  </table>
+  <input type='submit' name='login' value='Login'>
+  </form>
+  </center>
+  
+  <p align="right"><a href='<?=$this->escape($this->newaccount_link);?>'><?=$this->escape($this->newaccount_label);?></a></p>
+  </div>
+  </div>
+  
+<?php include "footer.phtml"; ?>

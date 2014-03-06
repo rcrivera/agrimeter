@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Surveyor Register</title>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header"></div>
+  <div id="content">
+    <form id="surv_regis" name="surv_regis" method="POST" action="<?=$this->escape($this->action)?>">
+      <div id="surv_general_information" class="registration_container">
+        <fieldset>
+          <legend>
+          <h1>General Information</h1>
+          </legend>
+          <p>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" />
+          </p>
+          <p>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name"/>
+          </p>
+          <p>
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country"/>
+          </p>
+          
+          <p>
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state"/>
+          </p>
+          <p>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city"/>
+          </p>
+           <p>
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address"/>
+          </p>
+          <p>
+            <label for="zip">Zip Code:</label>
+            <input type="text" name="zip" id="zip"/>
+          </p>
+          <p>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone"/>
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email"/>
+          </p>
+          <p>
+            <label for="org">Organization:</label>
+            <select name="org" id="org">
+            	<option value="NULL" selected>-------</option>
+            	<?php foreach($organizations as $row){ ?>
+                	<option value="<?php echo $row["userid"];?>"><?php echo $row["orgname"];?></option>
+                <?php } ?>
+            </select>
+          </p>
+        </fieldset>
+      </div>
+      <div id="surv_login_information" class="registration_container">
+        <fieldset>
+          <legend>
+          <h1>Login Information</h1>
+          </legend>
+          <p>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username"/>
+          </p>
+          <p>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"/>
+          </p>
+          <p>
+            <label for="conf_password">Confirm password:</label>
+            <input type="password" name="conf_password" id="conf_password"/>
+          </p>
+          <p>
+            <input type="submit" name="add_user" id="add_user" value="Create Account" />
+          </p>
+        </fieldset>
+      </div>
+      <br style="clear:both;" />
+    </form>
+  </div>
+  <div id="footer"></div>
+</div>
+</body>
+</html>

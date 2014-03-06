@@ -1,0 +1,45 @@
+<?php include 'header.phtml'; ?>
+<div id="content">
+<form name="csv_browse" enctype="multipart/form-data" method="POST" action='<?=$this->escape($this->browseaction);?>'>
+	<fieldset>
+    	<legend>
+         	<h1>Browse .csv file</h1>
+    	</legend>
+		<p>
+        <label for="filename">Select a file:</label>
+			<input type="file" name="filename" accept=".csv">
+		<p>	
+  			<input type="submit" id="uploadfile" value="Get Measurements">
+        </p>
+	</fieldset>
+</form>
+
+
+
+<?php if(isset($this->folders)){ 
+?>
+	<div id="uploadpointslist" style="overflow: auto; max-height: 350px;">
+	<form name="upload_points" method="POST" action='<?=$this->escape($this->uploadaction);?>'>
+		<fieldset>
+			<legend>
+				<h1>Select Measurements to Upload:</h1>
+			</legend>
+			<?php 
+			$folders = $this->folders;
+			for($i=0;$i<count($folders);$i++){?>
+				<input type="checkbox" name="folder_group[]" value='<?=$i;?>' /><?=$folders[$i]['fname']?><br />
+			<?php } ?>
+			<p>	
+				<input type="hidden" name="folders" value="<?php echo base64_encode(serialize($folders));?>">
+				<input type="submit" id="uploadfile" value="Upload">
+			</p>
+		</fieldset>
+	</form>	
+	</div>
+	
+<?php } ?>
+</div>
+
+<?php include "footer.phtml"; ?>
+
+

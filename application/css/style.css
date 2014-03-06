@@ -1,0 +1,119 @@
+
+#wrapper{
+	padding:0px;
+	margin:0px;
+	border:solid;
+	border-width:thin;
+	margin:auto;
+	width:1100px;
+	background-color:#d0e4fe;
+
+}
+
+#header{
+	bottom:0;
+	height:150px;
+	width:inherit;
+	background-color:#FF9;
+}
+
+#loginform{
+	float:right;
+	width:350px;
+	margin-top:50px;
+	margin-right:50px;
+	background-color:#E2EFF5;
+}
+#footer {
+   position:relative;
+   bottom:0;
+   width:inherit;
+   height:75px;
+   background-color:#FF9;
+   clear:both;
+}
+
+#r2elogo{
+	float:left;
+	height:65px;
+	margin-right:20px;
+	
+}
+#content{
+	min-height:430px;
+}
+
+.leftdiv{
+	float:left;
+	width:550px;
+}
+
+.rightdiv{
+	float:right;
+	width:550px;
+}
+
+#selectsurv,#selectorg{
+	border:solid;
+	border-width:thin;
+	background-color:#E2EFF5;
+	width:250px;
+	margin-left:125px;
+	margin-top:5px;
+}
+
+.features{
+	margin-left:15px;
+}
+
+#button_list{
+    list-style-type: none;
+}
+
+#project_actions{
+	float:left;
+	width:500px;
+}
+
+#map_comment_container{
+	float:right;
+	width:600px;
+}
+
+#project_buttons{
+	float:left;
+	width:140px;
+}
+
+.lister{
+	float:right;
+	width:350px;
+	border:solid;
+	border-width:thin;
+	background-color:#E2EFF5;
+}
+#googleMap{
+	margin-left:50px;
+	margin-top:20px;
+}
+#usernav{
+	float:right;
+}
+#r2elogo{
+	float:right;
+}
+
+#project_navigation{
+	margin-left:30px;
+}
+
+#comment_container{
+	height:45px;
+	width:500px;
+	border:solid;
+	border-width:thin;
+	margin-left:50px;
+	background-color:#E2EFF5;
+{
+
+

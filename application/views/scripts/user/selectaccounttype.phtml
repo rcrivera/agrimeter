@@ -1,0 +1,31 @@
+<?php include 'header.phtml'; ?>
+<div id="content">
+	<div id="selectorgcontainer" class="rightdiv">
+		<div id="selectorg">
+		<center><img id="selectorgimg" src="/images/organization-icon.png"/>
+		<br>
+		<h2 style="color:red">Organization</h2>
+			</center>
+			<p class="features" >
+				- Create and manage a network of Surveyors
+			</p>
+		<center><a href='<?=$this->escape($this->create_org_link);?>'><?=$this->escape($this->org_label);?></a></center>
+		
+		</div>
+	</div>
+	<div id="selectsurvcontainer" class="leftdiv">
+		<div id="selectsurv">
+			<center><img id="selectsurvimg" src="/images/individual-icon.png"/>
+			<br>
+			<h2 style="color:red">Surveyor</h2>
+			</center>
+			<p class="features" >
+				- Create, browse, edit projects <br>
+				- Upload measurements <br>
+				- Join an Organization to add collaborators to your projects <br>
+			</p>
+			<center><a href='<?=$this->escape($this->create_surv_link);?>'><?=$this->escape($this->surv_label);?></a></center>
+		</div>
+	</div>
+</div>
+<?php include "footer.phtml"; ?>

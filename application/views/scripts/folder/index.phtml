@@ -1,0 +1,84 @@
+<?php include 'header.phtml'; ?>
+  	<?php $folderlist = $this->folderlist;
+  	  $pointlist = $this->pointlist;
+  	?>   
+  <div id="content">
+    <div id="project_actions">
+        <div id="project_navigation"> 
+        	<p>
+        	<img src="/images/folder_green_dropdown.png" width="25" height="25"/>
+			<?php
+				$path =  $this->path;
+				for($i=count($path)-1;$i>=0;$i--){?>
+					<a href='<?=$this->escape($this->pathUrl);?>/folderpath/<?=$path[$i]['folderid'];?>'><?php echo $path[$i]['foldername'];?> </a>
+					<?php if($i!=0){?>
+						>
+					<?php }?>
+			<?php }?>
+			</p>	
+        </div>
+        <div id="proj_browser_buttons">
+            <div id="project_buttons">
+                <ul id="button_list" >
+                	<li><a href='<?=$this->escape($this->createfolderUrl);?>'><img src="/images/folder_add copy_green.png" width="32" height="32"/></a></li>
+                    <li><a href='<?=$this->escape($this->uploadUrl);?>'><img src="/images/inbox_upload.png" width="32" height="32"/></a></li>
+                    <li><a href='<?=$this->escape($this->editfolderUrl);?>'><img src="/images/folder_edit_green.png" width="32" height="32"/></a></li>
+            		<li><a href='<?=$this->escape($this->deletefolderUrl);?>'><img src="/images/folder_delete.png" width="32" height="32"/></a></li>
+            		<li><a href='<?=$this->escape($this->addcolabUrl);?>'><img src="/images/user_add.png" width="32" height="32"/></a></li>
+            		<li><a href='<?=$this->escape($this->rmvcolabUrl);?>'><img src="/images/user_delete.png" width="32" height="32"/></a></li>
+                    </ul>
+            </div>
+            
+            <?php if(isset($folderlist)){ ?>
+				<div id="folder_browser" class="lister" style="overflow: auto; max-height: 350px;">
+					<form id="folder_browser_form" name="folder_browser_form" method="POST" action='<?=$this->escape($this->urlforward);?>'>
+						
+						<?php 
+							foreach($folderlist as $folder){ ?>
+							<img id="folderimage" width=25 height=25 src="/images/folder_green.png"/><input type="radio" name="folder_select" value="<?php echo $folder["folderid"];?>"><?php echo $folder["foldername"];?><br>
+						<?php } ?>
+					</form>
+					<form id="back" name="back" method="POST" action='<?=$this->escape($this->urlback);?>'></form>   
+					 
+					<input type="submit" form="back" name="backbuttom" value="Back" onclick="back.action='<?=$this->escape($this->urlback);?>'"/>
+					<input type="submit" style="<?php if($folderlist == NULL){ echo 'visibility:hidden'; } ?>" form="folder_browser_form" name="explore" value="Explore" onclick="folder_browser_form.action='<?=$this->escape($this->urlforward);?>'"/>
+
+				</div> 
+    		<?php } ?>
+    		 
+    		<?php if(isset($pointlist)){ ?>
+				<div id="point_browser" class="lister" style="overflow: auto; max-height: 350px;">
+					<table>
+					<?php foreach($pointlist as $point){?>
+					<tr>
+						<tr><td>Point Name: <b><?=$point["pointname"];?></b></td></tr>
+						<tr><td>Latitude: <b><?=$point["latitude"];?></b></td></tr>
+						<tr><td>Longitude: <b><?=$point["longitude"];?></b></td></tr>
+						<tr><td>Elevation: <b><?=$point["elevation"];?></b></td></tr>
+						<tr><td>Total Distance (with Elevation): <b><?=$point["dist_total"];?> m (<?=$point["dist_total_e"];?> m)</b></td></tr>
+						<tr><td>Distance From Previous Point (with Elevation): <b><?=$point["dist_relative"];?> m (<?=$point["dist_relative_e"];?> m)</b></td></tr>
+						<tr><td>Elevation Difference: <b><?=$point["elevationdifference"];?> m</b></td></tr>
+						<tr><td>--------------------------------------------------------------</td></tr>
+					</tr>
+					<?php } ?>					    
+					
+					</table>
+					
+					<form id="back" name="back" method="POST" action='<?=$this->escape($this->urlback);?>'>
+                		<input type="submit" name="backbuttom" value="Back">
+                	</form>
+
+				</div> 
+    		 <?php } ?> 
+                <br style="clear:both;" />
+        </div>
+    </div>
+    <div id="map_comment_container">
+    	<div id="googleMap" style="width:500px;height:380px;"></div>  
+        <div id="comment_container">
+            <p><b>Comment: </b> <?php echo $path[0]['comment'];?></p>
+    	</div>
+    </div>
+	</div>
+    <br style="clear:both;" />
+<? include "footer.phtml"; ?>

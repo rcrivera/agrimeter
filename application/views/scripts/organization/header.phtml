@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="/application/css/style.css"/>
+
+<title><? echo $this->escape($this->title); ?></title>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+	<div id="usernav" align="right">
+	
+		<?php
+			$session = new Zend_Session_Namespace('user_info');
+			$username = $session->username;
+		?>
+	
+		<h3>Logged In: <?php echo $username;?></h3>
+		<a href='/web_root/user/logout'><img src="/images/door_in.png" width="32" height="32"/></a>
+		<p>Go To: <a href='/web_root/organization/'>Members Management </a>  |  <a href='/web_root/organization/orgprofile'>Edit Profile </a></p>
+	</div>
+	<div id="agrimeterlogo">
+	<img src="/images/agrimeter_logo.png" width="300"/>
+	</div>
+	 <br style="clear:both;" />
+
+	</div>

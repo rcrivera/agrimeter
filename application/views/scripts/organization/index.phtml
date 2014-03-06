@@ -1,0 +1,43 @@
+<?php include 'header.phtml'; ?>
+  <h1><?php echo $this->escape($this->title); ?></h1>
+	<div id="content">
+		<div id="activecontainer" class="leftdiv">
+			<div id="activelist" >
+				<form id="activelist_form" name="activelist_form" method="POST" action='<?=$this->escape($this->rmvactiveUrl);?>'>
+					<fieldset>
+						<legend>
+							<h1>Active Members</h1>
+						</legend>
+						<?php 
+						$activelist = $this->activelist;
+						foreach($activelist as $active){?>
+							<input type="checkbox" name="active_remove[]" value='<?=$active['userid'];?>' /><?=$active['username']?> - <?=$active['firstname']?> <?=$active['lastname']?><br />
+						<?php } ?>
+					</fieldset>
+				</form>
+				<div id="activebuttons"> <input type="submit" form="activelist_form" value='Remove Member'/> </div>
+			</div>
+		</div>		
+		<div id="requestscontainer" class="rightdiv">
+			<div id="requestslist">
+				<form id="requestlist_form" name="requestlist_form" method="POST">
+					<fieldset>
+						<legend>
+							<h1>Membership Requests</h1>
+						</legend>
+						<?php 
+						$requestslist = $this->requestslist;
+						foreach($requestslist as $request){?>
+							<input type="checkbox" name="requestsToManage[]" value='<?=$request['userid'];?>' /><?=$request['username']?> - <?=$request['firstname']?> <?=$request['lastname']?><br />
+						<?php } ?>
+					</fieldset>
+				</form>
+				<div id="requestsbuttons">
+				<input type="submit" form="requestlist_form" name="allowrequest" id="allowrequest" value="Allow" onclick="requestlist_form.action='<?=$this->escape($this->requestallowUrl);?>'"/>
+				<input type="submit" form="requestlist_form" name="denyrequest" id="denyrequest" value="Deny" onclick="requestlist_form.action='<?=$this->escape($this->requestdenyUrl);?>'"/>
+				</div>
+			</div>
+		</div>
+		<br style="clear:both;" />
+ 	</div>	 
+<? include "footer.phtml"; ?>

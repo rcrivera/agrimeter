@@ -1,0 +1,22 @@
+<?php include 'header.phtml'; ?>
+<div id="content">
+<?php if(isset($this->candidates)){?>
+	<form name="select_candidates" method="POST" action='<?=$this->escape($this->action);?>'>
+		<fieldset>
+			<legend>
+				<h1>Select Collaborators To Remove From Current Project:</h1>
+			</legend>
+			<?php 
+			$candidates = $this->candidates;
+			for($i=0;$i<count($candidates);$i++){?>
+				<input type="checkbox" name="selected_group[]" value='<?=$candidates[$i]['userid']?>' /><?=$candidates[$i]['username']?><br />
+			<?php } ?>
+			<p>	
+				<input type="submit" id="uploadfile" value="Remove">
+			</p>
+		</fieldset>
+	</form>	
+<?php } ?>
+</div>
+
+<?php include "footer.phtml"; ?>

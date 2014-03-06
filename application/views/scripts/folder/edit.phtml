@@ -1,0 +1,38 @@
+<?php include 'header.phtml'; ?>
+<div id="content">
+<form id="edit_folder_form" name="edit_folder_form" method="POST" action='<?=$this->escape($this->updatefolderaction);?>'>
+	<?php
+      $values = $this->foldernamecomment;
+      $errors = $this->errors;
+    ?> 	
+	<fieldset>
+    	<legend>
+         	<h1>Edit Folder</h1>
+    	</legend>
+		<p>
+        <label for="foldername">Folder Name:</label>
+		<input name="foldername" id="foldername" type="text" maxlength="35"
+		value="<?php if($values){ echo htmlentities($values['foldername'], ENT_COMPAT, 'UTF-8');} ?>"/>
+        <span>
+    		<?php if ($values && isset($errors['foldername'])){
+		  			echo $errors['foldername'];}?>
+    	</span>
+        </p>
+        
+        <p>
+        <label for="comment">Comment:</label>
+		<input name="comment" id="comment" type="text" maxlength="150"
+		value="<?php if($values){ echo htmlentities($values['comment'], ENT_COMPAT, 'UTF-8');} ?>"/>
+        <span>
+    		<?php if ($values && isset($errors['comment'])){
+		  			echo $errors['comment'];}?>
+    	</span>
+        </p>
+        
+        <p>
+        <input type="submit" name="update_folder" id="update_folder" value="Update Folder" />
+        </p>
+	</fieldset>
+</form>
+ </div> 
+<?php include "footer.phtml"; ?>
